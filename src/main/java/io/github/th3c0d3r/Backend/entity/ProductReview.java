@@ -1,4 +1,4 @@
-package io.github.th3c0d3r.entity;
+package io.github.th3c0d3r.Backend.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProductReview extends BasicInfo {
 
-    private Integer ProductId;
-    private Double StarRating;
-    private String Review;
+    private Integer productId;
+    private Double starRating;
+    private String review;
 }

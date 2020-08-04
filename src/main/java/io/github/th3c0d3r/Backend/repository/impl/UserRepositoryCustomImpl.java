@@ -1,8 +1,8 @@
-package io.github.th3c0d3r.repository.impl;
+package io.github.th3c0d3r.Backend.repository.impl;
 
-import io.github.th3c0d3r.dto.UserDto;
-import io.github.th3c0d3r.entity.User;
-import io.github.th3c0d3r.repository.UserRepositoryCustom;
+import io.github.th3c0d3r.Backend.dto.UserDto;
+import io.github.th3c0d3r.Backend.entity.User;
+import io.github.th3c0d3r.Backend.repository.UserRepositoryCustom;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +32,7 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
         Root<User> userRoot = criteriaQuery.from(User.class);
 
         List<Predicate> predicates = new ArrayList<>();
+        predicates.add(criteriaBuilder.equal(userRoot.get("deleted"),(byte) 0));
 
         if (userDto.getId() != null)
             predicates.add(criteriaBuilder.equal(userRoot.get("id"),userDto.getId()));
