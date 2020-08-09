@@ -15,6 +15,7 @@ public class UserConverter {
                 .age(user.getAge())
                 .email(user.getEmail())
                 .gender(user.getGender())
+                .active(user.getActive())
                 .build();
     }
 
@@ -25,6 +26,7 @@ public class UserConverter {
                 .email(userDto.getEmail())
                 .encryptedPassword(userDto.getPassword())
                 .active(userDto.getActive())
+                .roles("USER")
                 .build();
     }
 }

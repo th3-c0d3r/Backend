@@ -20,7 +20,7 @@ public class User extends BasicInfo{
     private String lastName;
     private Integer age;
     private Integer gender;
-    private Integer addressId;
+//    private Integer addressId;
     private String email;
     private String encryptedPassword;
     private Boolean active;

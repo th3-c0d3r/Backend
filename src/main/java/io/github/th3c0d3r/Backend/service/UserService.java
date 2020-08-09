@@ -24,7 +24,7 @@ public class UserService {
 
     public UserDto signUp(UserDto userDto){
 
-        if (userDto.getEmail().isEmpty() || userDto.getFirstName().isEmpty() || userDto.getPassword().isEmpty()){
+        if (userDto.getEmail() == null || userDto.getFirstName() == null || userDto.getPassword() == null){
             throw new WebServiceException("Name, Email and password are mandatory.");
         }
         List<User> users = userRepository.findUserByFilter(UserDto.builder().email(userDto.getEmail()).build());
@@ -33,6 +33,8 @@ public class UserService {
         }
 
         User user = userConverter.convertDtoToModel(userDto);
+        user.setDeleted(false);
+        user.setActive(true);
         return userConverter.convertModelToDto(userRepository.save(user));
     }
 }
